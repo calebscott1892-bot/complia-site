@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Complia — a C4 Studios product.
+ * Built on the C4 warm-dark design tokens (see c4studios.com.au globals.css),
+ * re-skinned with Complia's signature green "compliance" accent.
+ * Shared DNA: Inter, spacing, motion. Distinct identity: the accent + calendar-tick motif.
+ */
+:root {
+  /* ── Surfaces (C4 warm-dark) ── */
+  --bg: #0f1115;
+  --bg-alt: #161a21;
+  --card: #161a21;
+  --tag-bg: #1c2029;
+
+  /* ── Text — warm off-whites ── */
+  --text: #ece7de;
+  --text-muted: #a7abb4;
+  --text-subtle: #7d8290;
+  --text-faint: #505665;
+
+  /* ── Complia signature accent: green / compliance ── */
+  --accent: #2f9e6a;
+  --accent-strong: #57c08c;
+  --accent-hover: #28895c;
+  --accent-soft: rgba(47, 158, 106, 0.13);
+  --accent-line: rgba(47, 158, 106, 0.30);
+  --accent-glow: rgba(47, 158, 106, 0.22);
+  /* Text colour that sits ON the accent (buttons). Green is bright enough → dark ink (5.7:1). */
+  --accent-ink: #04140d;
+
+  /* ── Borders ── */
+  --border: rgba(236, 231, 222, 0.12);
+  --border-light: rgba(236, 231, 222, 0.07);
+
+  /* ── Footer ── */
+  --footer-bg: #0a0c10;
+
+  --ring: rgba(236, 231, 222, 0.35);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+/* Honour reduced-motion: kill smooth scroll + long transitions */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Focus visibility for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* Subtle starfield / grain backdrop helper */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-light) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Gold gradient text for key headline words */
+.text-gradient-gold {
+  background: linear-gradient(120deg, var(--accent-strong) 0%, var(--accent) 55%, var(--accent-hover) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Animated star shimmer for the loop motif */
+.loop-ring {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--accent-glow) 90deg,
+    transparent 180deg,
+    var(--accent-glow) 270deg,
+    transparent 360deg
+  );
+}
