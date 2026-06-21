@@ -133,6 +133,7 @@ export const content = {
   heroAccent: 'compliance deadline',
   heroTrail: '.',
   heroNote: 'Start free · built for the Australian calendar · not tax advice',
+  heroMetaTag: 'AU calendar',
 
   problemEyebrow: 'The reality',
   problemHeadline: 'A missed deadline costs far more than staying organised.',

@@ -4,28 +4,26 @@ import { Container, Section, Eyebrow, Reveal } from './primitives.jsx';
 
 export default function Outcomes() {
   return (
-    <Section id="outcomes">
+    <Section id="outcomes" className="border-b border-line">
       <Container>
-        <Reveal className="mx-auto max-w-2xl text-center">
+        <Reveal className="max-w-2xl">
           <Eyebrow>Why it matters</Eyebrow>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-5 text-[clamp(1.7rem,3.2vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
             {content.outcomesHeadline}
           </h2>
-          <p className="mt-4 text-lg text-ink-muted">{content.outcomesSub}</p>
+          <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.8] text-ink-muted">{content.outcomesSub}</p>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-3">
-          {product.highlights.map((h, i) => (
-            <Reveal
-              key={h.label}
-              delay={i * 0.08}
-              className="rounded-2xl border border-line bg-card p-8 text-center"
-            >
-              <div className="text-gradient-gold text-4xl font-extrabold tracking-tight sm:text-5xl">{h.stat}</div>
-              <div className="mt-3 text-[15px] text-ink-muted">{h.label}</div>
-            </Reveal>
+        <Reveal delay={0.06} className="mt-12 grid gap-px overflow-hidden rounded-[3px] border border-line bg-line sm:grid-cols-3">
+          {product.highlights.map((h) => (
+            <div key={h.label} className="bg-card p-8">
+              <div className="text-[clamp(1.9rem,3vw,2.6rem)] font-semibold tabular-nums leading-none tracking-[-0.03em] text-ink">
+                {h.stat}
+              </div>
+              <div className="mono mt-3 text-[10px] uppercase tracking-[0.18em] text-ink-subtle">{h.label}</div>
+            </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );

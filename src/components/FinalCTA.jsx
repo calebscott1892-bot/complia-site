@@ -4,34 +4,42 @@ import { Container, Section, Reveal, Button, Motif, ArrowRight } from './primiti
 
 export default function FinalCTA() {
   return (
-    <Section className="border-t border-line">
+    <Section>
       <Container>
-        <Reveal className="relative overflow-hidden rounded-3xl border border-accent-line bg-card px-8 py-16 text-center sm:px-16">
+        <Reveal className="relative overflow-hidden rounded-[3px] bg-[color:var(--ink-bg)] px-8 py-16 text-center md:px-16 md:py-20">
           <div
             aria-hidden="true"
-            className="bg-grid pointer-events-none absolute inset-0 opacity-[0.35]"
+            className="pointer-events-none absolute inset-0 opacity-[0.5]"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px)',
+              backgroundSize: '48px 48px',
+            }}
           />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 -top-24 h-64"
-            style={{ background: 'radial-gradient(50% 70% at 50% 0%, var(--accent-glow), transparent 70%)' }}
-          />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px bg-accent-line" />
           <div className="relative">
-            <Motif size={18} className="justify-center" />
-            <h2 className="mx-auto mt-6 max-w-2xl text-3xl font-extrabold tracking-tight text-ink sm:text-5xl">
+            <Motif size={16} className="justify-center" />
+            <h2 className="mx-auto mt-6 max-w-[20ch] text-[clamp(1.9rem,4vw,3.2rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[color:var(--ink-text)]">
               {content.finalHeadline}
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg text-ink-muted">{content.finalSub}</p>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <Button href={product.ctaHref} variant="primary" className="px-8 py-4 text-base">
+            <p className="mx-auto mt-5 max-w-[44ch] text-[15.5px] leading-[1.7] text-[color:var(--ink-muted)]">{content.finalSub}</p>
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+              <Button href={product.ctaHref} variant="primary">
                 {product.ctaLabel}
                 <ArrowRight />
               </Button>
-              <Button href={product.lifetime.href} variant="secondary" className="px-8 py-4 text-base">
+              <a
+                href={product.lifetime.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--ink-border)] px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[color:var(--ink-text)] transition-colors duration-300 hover:bg-[color:rgba(255,255,255,0.06)]"
+              >
                 Get lifetime — ${product.lifetime.price}
-              </Button>
+              </a>
             </div>
-            <p className="mt-5 text-sm text-ink-subtle">No credit card to start · paid plans unlock in-app</p>
+            <p className="mono mt-6 text-[10px] uppercase tracking-[0.18em] text-[color:var(--ink-faint)]">
+              No card to start · paid plans unlock in-app
+            </p>
           </div>
         </Reveal>
       </Container>

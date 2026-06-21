@@ -4,48 +4,46 @@
 
 /*
  * Complia — a C4 Studios product.
- * Built on the C4 warm-dark design tokens (see c4studios.com.au globals.css),
- * re-skinned with Complia's signature green "compliance" accent.
- * Shared DNA: Inter, spacing, motion. Distinct identity: the accent + calendar-tick motif.
+ * Matches the c4studios.com.au design language: warm-light editorial, near-black
+ * type, monospace technical labels, hairline borders, minimal radius, restrained
+ * accent use. Distinct identity = Complia's deep-green accent.
  */
 :root {
-  /* ── Surfaces (C4 warm-dark) ── */
-  --bg: #0f1115;
-  --bg-alt: #161a21;
-  --card: #161a21;
-  --tag-bg: #1c2029;
+  /* ── Surfaces (C4 warm light) ── */
+  --bg: #f7f5f2;
+  --bg-alt: #f0ede8;
+  --card: #ffffff;
+  --tag: #f4f2ef;
 
-  /* ── Text — warm off-whites ── */
-  --text: #ece7de;
-  --text-muted: #a7abb4;
-  --text-subtle: #7d8290;
-  --text-faint: #505665;
+  /* ── Text ── */
+  --text: #1a1a1a;
+  --text-muted: #6f6e69;
+  --text-subtle: #908e88;
+  --text-faint: #b0ada8;
 
-  /* ── Complia signature accent: green / compliance ── */
-  --accent: #2f9e6a;
-  --accent-strong: #57c08c;
-  --accent-hover: #28895c;
-  --accent-soft: rgba(47, 158, 106, 0.13);
-  --accent-line: rgba(47, 158, 106, 0.30);
-  --accent-glow: rgba(47, 158, 106, 0.22);
-  /* Text colour that sits ON the accent (buttons). Green is bright enough → dark ink (5.7:1). */
-  --accent-ink: #04140d;
+  /* ── Complia accent: deep green (legible on light) ── */
+  --accent: #2c7a55;
+  --accent-strong: #37936a;
+  --accent-soft: rgba(44, 122, 85, 0.08);
+  --accent-line: rgba(44, 122, 85, 0.30);
+  --accent-ink: #ffffff; /* text on the accent (buttons) */
 
   /* ── Borders ── */
-  --border: rgba(236, 231, 222, 0.12);
-  --border-light: rgba(236, 231, 222, 0.07);
+  --border: #dddbd7;
+  --border-light: #eceae6;
 
-  /* ── Footer ── */
-  --footer-bg: #0a0c10;
+  /* ── Inverted band (footer / final CTA) ── */
+  --ink-bg: #1a1a1a;
+  --ink-text: #e9e6e0;
+  --ink-muted: #9c9a94;
+  --ink-faint: #6b6963;
+  --ink-border: rgba(255, 255, 255, 0.10);
 
-  --ring: rgba(236, 231, 222, 0.35);
-  color-scheme: dark;
+  --ring: rgba(26, 26, 26, 0.4);
+  color-scheme: light;
 }
 
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -56,7 +54,6 @@ body {
   margin: 0;
 }
 
-/* Honour reduced-motion: kill smooth scroll + long transitions */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
@@ -66,53 +63,29 @@ body {
   }
 }
 
-/* Focus visibility for keyboard users */
 :focus-visible {
-  outline: 2px solid var(--accent-strong);
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
   border-radius: 2px;
 }
-a:focus:not(:focus-visible),
-button:focus:not(:focus-visible) {
-  outline: none;
-}
+a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 
-::selection {
-  background: var(--accent-soft);
-  color: var(--text);
-}
+::selection { background: rgba(26, 26, 26, 0.08); color: var(--text); }
 
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: var(--border); }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
 
-/* Subtle starfield / grain backdrop helper */
-.bg-grid {
+/* Technical mono label — the C4 signature */
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* Faint blueprint grid for hero backdrops */
+.blueprint {
   background-image:
-    linear-gradient(to right, var(--border-light) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border-light) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* Gold gradient text for key headline words */
-.text-gradient-gold {
-  background: linear-gradient(120deg, var(--accent-strong) 0%, var(--accent) 55%, var(--accent-hover) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-/* Animated star shimmer for the loop motif */
-.loop-ring {
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    var(--accent-glow) 90deg,
-    transparent 180deg,
-    var(--accent-glow) 270deg,
-    transparent 360deg
-  );
+    linear-gradient(to right, rgba(26, 26, 26, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 26, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
 }

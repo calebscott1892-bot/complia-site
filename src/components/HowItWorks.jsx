@@ -4,32 +4,25 @@ import { Container, Section, Eyebrow, Reveal } from './primitives.jsx';
 
 export default function HowItWorks() {
   return (
-    <Section id="how">
+    <Section id="how" className="border-b border-line">
       <Container>
-        <Reveal className="mx-auto max-w-2xl text-center">
+        <Reveal className="max-w-2xl">
           <Eyebrow>How it works</Eyebrow>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-5 text-[clamp(1.7rem,3.2vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
             {content.howHeadline}
           </h2>
-          <p className="mt-4 text-lg text-ink-muted">{content.howSub}</p>
+          <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.8] text-ink-muted">{content.howSub}</p>
         </Reveal>
 
-        <div className="relative mt-16 grid gap-8 md:grid-cols-3">
-          {/* Connecting line */}
-          <div
-            aria-hidden="true"
-            className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-line to-transparent md:block"
-          />
-          {product.howItWorks.map((s, i) => (
-            <Reveal key={s.step} delay={i * 0.1} className="relative">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-accent-line bg-bg text-lg font-bold text-accent">
-                {s.step}
-              </div>
-              <h3 className="mt-5 text-lg font-semibold text-ink">{s.title}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-ink-muted">{s.body}</p>
-            </Reveal>
+        <Reveal delay={0.06} className="mt-12 grid gap-px overflow-hidden rounded-[3px] border border-line bg-line sm:grid-cols-3">
+          {product.howItWorks.map((s) => (
+            <div key={s.step} className="bg-card p-7 md:p-8">
+              <span className="mono text-[12px] font-semibold tabular-nums tracking-[0.1em] text-accent">{s.step}</span>
+              <h3 className="mt-4 text-[16px] font-semibold tracking-[-0.01em] text-ink">{s.title}</h3>
+              <p className="mt-2 text-[13.5px] leading-[1.7] text-ink-muted">{s.body}</p>
+            </div>
           ))}
-        </div>
+        </Reveal>
       </Container>
     </Section>
   );
