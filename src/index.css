@@ -40,6 +40,12 @@
   --ink-border: rgba(255, 255, 255, 0.10);
 
   --ring: rgba(26, 26, 26, 0.4);
+
+  /* ── Depth (premium, not glow) ── */
+  --shadow-sm: 0 1px 2px rgba(26, 22, 18, 0.04);
+  --shadow-card: 0 1px 2px rgba(26, 22, 18, 0.04), 0 14px 30px -20px rgba(26, 22, 18, 0.18);
+  --shadow-lift: 0 1px 2px rgba(26, 22, 18, 0.05), 0 26px 50px -24px rgba(26, 22, 18, 0.26);
+  --shadow-panel: 0 2px 6px rgba(26, 22, 18, 0.05), 0 44px 90px -44px rgba(26, 22, 18, 0.34);
   color-scheme: light;
 }
 
@@ -85,7 +91,29 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 /* Faint blueprint grid for hero backdrops */
 .blueprint {
   background-image:
-    linear-gradient(to right, rgba(26, 26, 26, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(26, 26, 26, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(to right, rgba(26, 26, 26, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 26, 26, 0.028) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(120% 90% at 70% 0%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(120% 90% at 70% 0%, #000 35%, transparent 100%);
+}
+
+/* Refined card with subtle depth + hover lift */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  box-shadow: var(--shadow-card);
+}
+.card-hover {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease;
+  will-change: transform;
+}
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+  border-color: var(--accent-line);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-hover:hover { transform: none; }
 }

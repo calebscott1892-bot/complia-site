@@ -9,9 +9,19 @@ export function Container({ className = '', children }) {
 
 export function Section({ id, className = '', children }) {
   return (
-    <section id={id} className={`py-20 md:py-28 ${className}`}>
+    <section id={id} className={`py-24 md:py-32 ${className}`}>
       {children}
     </section>
+  );
+}
+
+/** Refined surface card with subtle depth; add hover for interactive cards. */
+export function Card({ as = 'div', hover = false, className = '', children, ...rest }) {
+  const Tag = as;
+  return (
+    <Tag className={`card ${hover ? 'card-hover' : ''} ${className}`} {...rest}>
+      {children}
+    </Tag>
   );
 }
 
@@ -49,9 +59,10 @@ export function Button({ href, children, variant = 'primary', external = true, c
   const base =
     'group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[11px] font-medium uppercase tracking-[0.14em] transition-all duration-300';
   const styles = {
-    primary: 'bg-accent text-[color:var(--accent-ink)] hover:opacity-90',
-    ghost: 'border border-ink text-ink hover:bg-ink hover:text-bg',
-    soft: 'border border-line bg-card text-ink hover:border-ink',
+    primary:
+      'bg-accent text-[color:var(--accent-ink)] shadow-[var(--shadow-sm)] hover:-translate-y-px hover:shadow-[var(--shadow-card)] hover:brightness-[1.06]',
+    ghost: 'border border-ink/85 text-ink hover:bg-ink hover:text-bg',
+    soft: 'border border-line bg-card text-ink shadow-[var(--shadow-sm)] hover:-translate-y-px hover:border-ink/40 hover:shadow-[var(--shadow-card)]',
   };
   return (
     <a

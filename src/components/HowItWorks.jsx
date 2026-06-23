@@ -8,21 +8,22 @@ export default function HowItWorks() {
       <Container>
         <Reveal className="max-w-2xl">
           <Eyebrow>How it works</Eyebrow>
-          <h2 className="mt-5 text-[clamp(1.7rem,3.2vw,2.5rem)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
+          <h2 className="mt-6 text-[clamp(1.8rem,3.4vw,2.7rem)] font-semibold leading-[1.08] tracking-[-0.035em] text-ink">
             {content.howHeadline}
           </h2>
-          <p className="mt-4 max-w-[52ch] text-[15.5px] leading-[1.8] text-ink-muted">{content.howSub}</p>
+          <p className="mt-5 max-w-[52ch] text-[16px] leading-[1.75] text-ink-muted">{content.howSub}</p>
         </Reveal>
 
-        <Reveal delay={0.06} className="mt-12 grid gap-px overflow-hidden rounded-[3px] border border-line bg-line sm:grid-cols-3">
-          {product.howItWorks.map((s) => (
-            <div key={s.step} className="bg-card p-7 md:p-8">
-              <span className="mono text-[12px] font-semibold tabular-nums tracking-[0.1em] text-accent">{s.step}</span>
-              <h3 className="mt-4 text-[16px] font-semibold tracking-[-0.01em] text-ink">{s.title}</h3>
-              <p className="mt-2 text-[13.5px] leading-[1.7] text-ink-muted">{s.body}</p>
-            </div>
+        <div className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-3">
+          {product.howItWorks.map((s, i) => (
+            <Reveal key={s.step} delay={i * 0.09} className="relative">
+              <div className="mono text-[13px] font-semibold tabular-nums tracking-[0.12em] text-accent">{s.step}</div>
+              <div className="mt-4 h-px w-9 bg-accent-line" />
+              <h3 className="mt-6 text-[18px] font-semibold tracking-[-0.015em] text-ink">{s.title}</h3>
+              <p className="mt-2.5 text-[14.5px] leading-[1.7] text-ink-muted">{s.body}</p>
+            </Reveal>
           ))}
-        </Reveal>
+        </div>
       </Container>
     </Section>
   );

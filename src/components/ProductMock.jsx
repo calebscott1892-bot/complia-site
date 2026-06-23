@@ -26,7 +26,7 @@ export default function ProductMock() {
 
   return (
     <div className="relative">
-      <motion.div {...rise(0.1)} className="relative rounded-[3px] border border-line bg-card" style={{ boxShadow: '0 24px 60px -34px rgba(26,26,26,0.28)' }}>
+      <motion.div {...rise(0.1)} className="relative rounded-[10px] border border-line bg-card" style={{ boxShadow: 'var(--shadow-panel)' }}>
         <CornerBrackets inset={10} size={16} />
 
         <div className="flex items-center justify-between border-b border-line px-5 py-3">

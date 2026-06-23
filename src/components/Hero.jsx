@@ -24,14 +24,14 @@ export default function Hero() {
 
             <motion.h1
               {...item(0.08)}
-              className="mt-6 max-w-[16ch] text-[clamp(2.4rem,5vw,4.2rem)] font-semibold leading-[1.0] tracking-[-0.04em] text-ink"
+              className="mt-7 max-w-[15ch] text-[clamp(2.6rem,5.4vw,4.7rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-ink"
               style={{ textWrap: 'balance' }}
             >
               {content.heroLead} <span className="text-accent">{content.heroAccent}</span>
               {content.heroTrail}
             </motion.h1>
 
-            <motion.p {...item(0.16)} className="mt-7 max-w-[40ch] text-[15.5px] leading-[1.8] text-ink-muted">
+            <motion.p {...item(0.16)} className="mt-8 max-w-[42ch] text-[16.5px] leading-[1.75] text-ink-muted">
               {product.summary}
             </motion.p>
 

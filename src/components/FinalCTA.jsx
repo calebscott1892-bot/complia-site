@@ -6,7 +6,7 @@ export default function FinalCTA() {
   return (
     <Section>
       <Container>
-        <Reveal className="relative overflow-hidden rounded-[3px] bg-[color:var(--ink-bg)] px-8 py-16 text-center md:px-16 md:py-20">
+        <Reveal className="relative overflow-hidden rounded-[18px] bg-[color:var(--ink-bg)] px-8 py-20 text-center md:px-16 md:py-24" style={{ boxShadow: 'var(--shadow-panel)' }}>
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 opacity-[0.5]"
