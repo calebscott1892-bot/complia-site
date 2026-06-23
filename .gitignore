@@ -5,3 +5,4 @@ dist-server
 *.local
 .vite
 npm-debug.log*
+.vercel
