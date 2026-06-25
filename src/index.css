@@ -17,9 +17,9 @@
 
   /* ── Text ── */
   --text: #1a1a1a;
-  --text-muted: #6f6e69;
-  --text-subtle: #908e88;
-  --text-faint: #b0ada8;
+  --text-muted: #5f5e58;
+  --text-subtle: #6c6a62;
+  --text-faint: #767468;
 
   /* ── Complia accent: deep green (legible on light) ── */
   --accent: #2c7a55;

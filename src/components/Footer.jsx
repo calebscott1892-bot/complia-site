@@ -29,7 +29,7 @@ export default function Footer() {
             </span>
             <p className="mt-4 max-w-[30ch] text-[13.5px] leading-[1.65] text-[color:var(--ink-muted)]">
               {product.oneLiner} A product of{' '}
-              <a href="https://c4studios.com.au" target="_blank" rel="noopener noreferrer" className="text-[color:var(--ink-text)] hover:underline">
+              <a href="https://c4studios.com.au" target="_blank" rel="noopener noreferrer" className="text-[color:var(--ink-text)] underline decoration-[color:var(--ink-border)] underline-offset-2 hover:decoration-[color:var(--ink-text)]">
                 C4 Studios
               </a>
               .

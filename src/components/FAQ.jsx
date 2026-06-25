@@ -15,7 +15,7 @@ export default function FAQ() {
             </h2>
             <p className="mt-5 text-[15px] leading-[1.7] text-ink-muted">
               Still wondering something? Start free in the app, or email the C4 team at{' '}
-              <a href="mailto:caleb@c4studios.com.au" className="text-accent hover:text-accent-strong">
+              <a href="mailto:caleb@c4studios.com.au" className="text-accent underline decoration-accent-line underline-offset-2 hover:text-accent-strong">
                 caleb@c4studios.com.au
               </a>
               .

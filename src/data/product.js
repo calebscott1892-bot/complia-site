@@ -113,7 +113,8 @@ export const product = {
       ],
     },
   ],
-  lifetime: { price: 690, href: `${SUITE_APP_URL}?ref=complia-lifetime` },
+  // Direct Stripe one-time checkout (from C4 productData LIFETIME_LINKS).
+  lifetime: { price: 690, href: 'https://buy.stripe.com/cNibJ1a9i7Ri1op72w3ZK0j' },
   pricing: 'Starter $29/mo · Pro $59/mo. Start free — paid plans unlock inside the app.',
 
   ctaHref: `${SUITE_APP_URL}?ref=complia`,
