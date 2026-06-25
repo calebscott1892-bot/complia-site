@@ -164,6 +164,8 @@ export const content = {
     'Complia turns every obligation into a date, a reminder and a checklist — so staying compliant is a system, not a scramble.',
 
   socialHeadline: 'Built for Australian businesses that can’t afford to miss',
+  // Flip to true + add a real `name` to each testimonial below to ship real social proof.
+  testimonialsAreReal: false,
   testimonials: [
     { quote: 'BAS used to ambush me every quarter. Now I get a reminder with time to actually get the numbers together.', role: 'Sole trader' },
     { quote: 'The ASIC annual review is the one I always forgot. Complia put it on the calendar with a checklist.', role: 'Café owner' },

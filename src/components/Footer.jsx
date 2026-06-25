@@ -46,7 +46,17 @@ export default function Footer() {
 
         <div className="mono mt-14 flex flex-col items-start justify-between gap-3 border-t border-[color:var(--ink-border)] pt-8 text-[10px] uppercase tracking-[0.16em] text-[color:var(--ink-faint)] sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} C4 Studios</p>
-          <p>Built in Perth, Western Australia</p>
+          <div className="flex items-center gap-5">
+            <a
+              href="https://c4studios.com.au/Terms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-[color:var(--ink-text)]"
+            >
+              Terms
+            </a>
+            <span>Built in Perth, Western Australia</span>
+          </div>
         </div>
       </Container>
     </footer>
