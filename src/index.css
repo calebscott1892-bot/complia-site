@@ -19,7 +19,7 @@
   --text: #1a1a1a;
   --text-muted: #5f5e58;
   --text-subtle: #6c6a62;
-  --text-faint: #767468;
+  --text-faint: #6e6c61;
 
   /* ── Complia accent: deep green (legible on light) ── */
   --accent: #2c7a55;
@@ -36,7 +36,7 @@
   --ink-bg: #1a1a1a;
   --ink-text: #e9e6e0;
   --ink-muted: #9c9a94;
-  --ink-faint: #6b6963;
+  --ink-faint: #8d8b83;
   --ink-border: rgba(255, 255, 255, 0.10);
 
   --ring: rgba(26, 26, 26, 0.4);

@@ -66,7 +66,7 @@ function FooterCol({ title, links }) {
               rel="noopener noreferrer"
               aria-current={l.current ? 'page' : undefined}
               className={`group inline-flex items-center gap-1.5 text-[13.5px] transition-colors ${
-                l.current ? 'font-medium text-accent-strong' : 'text-[color:var(--ink-muted)] hover:text-[color:var(--ink-text)]'
+                l.current ? 'font-semibold text-[color:var(--ink-text)]' : 'text-[color:var(--ink-muted)] hover:text-[color:var(--ink-text)]'
               }`}
             >
               {l.name}
