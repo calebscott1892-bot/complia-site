@@ -8,6 +8,9 @@
 
 export const SUITE_APP_URL = 'https://c4-saas-suite.vercel.app';
 
+// The standalone Complia product app (where signups + billing happen).
+export const APP_URL = 'https://app.complia.c4studios.com.au';
+
 export const SUITE_BUNDLE = {
   price: 149,
   href: `${SUITE_APP_URL}?ref=complia-suite`,
@@ -113,12 +116,12 @@ export const product = {
       ],
     },
   ],
-  // Matches C4 productData lifetime.href — routes to the suite app, which handles
-  // lifetime checkout + grants access on payment. (Raw Stripe LIFETIME_LINKS are archived.)
-  lifetime: { price: 690, href: `${SUITE_APP_URL}?ref=complia-lifetime` },
+  // Routes to the standalone Complia app, which handles lifetime checkout
+  // + grants access on payment.
+  lifetime: { price: 690, href: `${APP_URL}/billing?ref=complia-lifetime` },
   pricing: 'Starter $29/mo · Pro $59/mo. Start free — paid plans unlock inside the app.',
 
-  ctaHref: `${SUITE_APP_URL}?ref=complia`,
+  ctaHref: `${APP_URL}?ref=complia`,
   ctaLabel: 'Start free',
 
   c4Url: 'https://c4studios.com.au',
