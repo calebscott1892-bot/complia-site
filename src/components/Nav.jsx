@@ -16,7 +16,7 @@ export default function Nav() {
       style={{ backgroundColor: 'color-mix(in srgb, var(--bg) 85%, transparent)' }}
     >
       <div className="mx-auto flex h-16 w-full max-w-container items-center justify-between px-6 md:px-12">
-        <a href="#top" className="rounded-[3px]" aria-label="ReviewLoop home">
+        <a href="#top" className="rounded-[3px]" aria-label={`${product.name} home`}>
           <Wordmark logo={product.logo} name={product.name} />
         </a>
         <nav className="hidden items-center gap-9 md:flex" aria-label="Primary">

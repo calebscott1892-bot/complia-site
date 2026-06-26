@@ -93,7 +93,7 @@ export function allSchemas() {
     faqSchema(product.faqs),
     breadcrumbSchema([
       { name: 'C4 Studios', url: ORG.url },
-      { name: 'ReviewLoop', url: seo.url },
+      { name: product.name, url: seo.url },
     ]),
   ];
 }
@@ -115,7 +115,7 @@ export function renderHead() {
     `<link rel="canonical" href="${seo.url}" />`,
     // Open Graph
     `<meta property="og:type" content="website" />`,
-    `<meta property="og:site_name" content="ReviewLoop" />`,
+    `<meta property="og:site_name" content="${esc(product.name)}" />`,
     `<meta property="og:title" content="${esc(seo.title)}" />`,
     `<meta property="og:description" content="${esc(seo.description)}" />`,
     `<meta property="og:url" content="${seo.url}" />`,
