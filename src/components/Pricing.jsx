@@ -1,5 +1,5 @@
 import React from 'react';
-import { product, SUITE_BUNDLE } from '../data/product.js';
+import { product } from '../data/product.js';
 import { Container, Section, Eyebrow, Reveal, Card, Button, Check, ArrowUpRight } from './primitives.jsx';
 
 export default function Pricing() {
@@ -58,22 +58,14 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Lifetime + Suite */}
-        <div className="mx-auto mt-5 grid max-w-3xl gap-5 sm:grid-cols-2">
+        {/* Lifetime */}
+        <div className="mx-auto mt-5 max-w-3xl">
           <Reveal delay={0.04}>
             <PriceRow
               label="Lifetime access"
-              body={<>One payment of <span className="font-semibold tabular-nums text-ink">${product.lifetime.price}</span> — yours for good.</>}
+              body={<>One payment of <span className="font-semibold tabular-nums text-ink">${product.lifetime.price}</span> — every feature, yours for good. No subscription.</>}
               cta="Get lifetime"
               href={product.lifetime.href}
-            />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <PriceRow
-              label="The C4 Suite"
-              body={<>Get everything for <span className="font-semibold tabular-nums text-ink">${SUITE_BUNDLE.price}/mo</span>.</>}
-              cta="Explore the Suite"
-              href={SUITE_BUNDLE.href}
             />
           </Reveal>
         </div>
