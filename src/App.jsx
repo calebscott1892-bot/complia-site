@@ -11,6 +11,7 @@ import Pricing from './components/Pricing.jsx';
 import FAQ from './components/FAQ.jsx';
 import FinalCTA from './components/FinalCTA.jsx';
 import Footer from './components/Footer.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
         <FinalCTA />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

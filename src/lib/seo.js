@@ -121,6 +121,53 @@ function esc(str = '') {
     .replace(/"/g, '&quot;');
 }
 
+/** JSON-LD set for a programmatic SEO landing page: FAQPage + BreadcrumbList. */
+export function landingPageSchemas(page, pageUrl) {
+  return [
+    faqSchema(page.faqs),
+    breadcrumbSchema([
+      { name: 'Home', url: `${seo.url}/` },
+      { name: 'Guides', url: `${seo.url}/#guides` },
+      { name: page.breadcrumb, url: pageUrl },
+    ]),
+  ];
+}
+
+/**
+ * <head> string for a landing page. Mirrors renderHead() but takes per-page
+ * meta (unique title / description / canonical) and emits the page's own
+ * FAQPage + BreadcrumbList JSON-LD instead of the homepage schema set.
+ */
+export function renderPageHead(page) {
+  const pageUrl = `${seo.url}/${page.slug}`;
+  const tags = [
+    `<title>${esc(page.title)}</title>`,
+    `<meta name="description" content="${esc(page.description)}" />`,
+    `<meta name="theme-color" content="${seo.themeColor}" />`,
+    `<link rel="canonical" href="${pageUrl}" />`,
+    // Open Graph
+    `<meta property="og:type" content="article" />`,
+    `<meta property="og:site_name" content="${esc(product.name)}" />`,
+    `<meta property="og:title" content="${esc(page.title)}" />`,
+    `<meta property="og:description" content="${esc(page.description)}" />`,
+    `<meta property="og:url" content="${pageUrl}" />`,
+    `<meta property="og:image" content="${seo.ogImage}" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:alt" content="${esc(page.title)}" />`,
+    `<meta property="og:locale" content="en_AU" />`,
+    // Twitter
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:title" content="${esc(page.title)}" />`,
+    `<meta name="twitter:description" content="${esc(page.description)}" />`,
+    `<meta name="twitter:image" content="${seo.ogImage}" />`,
+    `<meta name="twitter:image:alt" content="${esc(page.title)}" />`,
+    // JSON-LD
+    `<script type="application/ld+json">${JSON.stringify(landingPageSchemas(page, pageUrl))}</script>`,
+  ];
+  return tags.join('\n    ');
+}
+
 /** Returns the full <head> tag string injected by the prerender script. */
 export function renderHead() {
   const tags = [
