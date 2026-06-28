@@ -188,5 +188,5 @@ export const seo = {
     'Complia keeps small Australian businesses ahead of BAS, super and ASIC obligations with checklists and reminders built around the real ATO calendar. An organisational tool — not tax advice. A C4 Studios product.',
   url: product.siteUrl,
   ogImage: `${product.siteUrl}/og.png`,
-  themeColor: '#0f1115',
+  themeColor: '#f7f5f2',
 };
