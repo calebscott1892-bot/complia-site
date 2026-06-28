@@ -54,12 +54,15 @@ export function breadcrumbSchema(items) {
 
 /** SoftwareApplication — offers derived from product.tiers + lifetime (no hardcoded prices). */
 export function softwareApplicationSchema() {
+  // Rolling validity so Google rich-result "priceValidUntil" warnings never fire.
+  const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
   const offers = [
     ...product.tiers.map((t) => ({
       '@type': 'Offer',
       name: `${product.name} ${t.label}`,
       price: String(t.price),
       priceCurrency: 'AUD',
+      priceValidUntil,
       url: product.ctaHref,
       availability: 'https://schema.org/InStock',
     })),
@@ -68,6 +71,7 @@ export function softwareApplicationSchema() {
       name: `${product.name} Lifetime`,
       price: String(product.lifetime.price),
       priceCurrency: 'AUD',
+      priceValidUntil,
       url: product.lifetime.href,
       availability: 'https://schema.org/InStock',
     },
@@ -86,9 +90,20 @@ export function softwareApplicationSchema() {
   };
 }
 
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: product.name,
+    url: seo.url,
+    publisher: { '@type': 'Organization', name: ORG.name, url: ORG.url },
+  };
+}
+
 export function allSchemas() {
   return [
     organizationSchema(),
+    websiteSchema(),
     softwareApplicationSchema(),
     faqSchema(product.faqs),
     breadcrumbSchema([
@@ -120,11 +135,16 @@ export function renderHead() {
     `<meta property="og:description" content="${esc(seo.description)}" />`,
     `<meta property="og:url" content="${seo.url}" />`,
     `<meta property="og:image" content="${seo.ogImage}" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:alt" content="${esc(seo.title)}" />`,
+    `<meta property="og:locale" content="en_AU" />`,
     // Twitter
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${esc(seo.title)}" />`,
     `<meta name="twitter:description" content="${esc(seo.description)}" />`,
     `<meta name="twitter:image" content="${seo.ogImage}" />`,
+    `<meta name="twitter:image:alt" content="${esc(seo.title)}" />`,
     // JSON-LD
     `<script type="application/ld+json">${JSON.stringify(allSchemas())}</script>`,
   ];

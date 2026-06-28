@@ -23,7 +23,7 @@ export default function Hero() {
             </motion.div>
 
             <motion.h1
-              {...item(0.08)}
+              initial={false}
               className="mt-7 max-w-[15ch] text-[clamp(2.6rem,5.4vw,4.7rem)] font-semibold leading-[0.98] tracking-[-0.045em] text-ink"
               style={{ textWrap: 'balance' }}
             >

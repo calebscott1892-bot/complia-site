@@ -117,3 +117,6 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 @media (prefers-reduced-motion: reduce) {
   .card-hover:hover { transform: none; }
 }
+
+/* Anchor scroll offset for the 64px sticky header. */
+section[id], #top, #main { scroll-margin-top: 5rem; }
