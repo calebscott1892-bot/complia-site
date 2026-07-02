@@ -14,16 +14,16 @@
  * including CI with no browser.
  */
 import { readFile, writeFile, rm, mkdir } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 
-const { render, renderPage } = await import(resolve(root, 'dist-server/entry-server.js'));
-const { renderHead, renderPageHead } = await import(resolve(root, 'src/lib/seo.js'));
-const { seo } = await import(resolve(root, 'src/data/product.js'));
-const { landingPages } = await import(resolve(root, 'src/data/landingPages.js'));
+const { render, renderPage } = await import(pathToFileURL(resolve(root, 'dist-server/entry-server.js')).href);
+const { renderHead, renderPageHead } = await import(pathToFileURL(resolve(root, 'src/lib/seo.js')).href);
+const { seo } = await import(pathToFileURL(resolve(root, 'src/data/product.js')).href);
+const { landingPages } = await import(pathToFileURL(resolve(root, 'src/data/landingPages.js')).href);
 
 const templatePath = resolve(root, 'dist/index.html');
 // Read the built client template ONCE, before mutating it — landing pages reuse
